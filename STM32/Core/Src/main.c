@@ -32,6 +32,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define DURATION 1
 #define RED_DURATION 5
 #define YELLOW_DURATION 2
 #define GREEN_DURATION 3
@@ -57,7 +58,6 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
 enum LEDSTATE {
 	RED0_GREEN1,
 	RED0_YELLOW1,
@@ -107,7 +107,10 @@ int main(void)
   HAL_GPIO_WritePin(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, GPIO_PIN_SET);
   enum LEDSTATE currentState = RED0_GREEN1;
   enum LEDSTATE nextState = currentState;
+  int counter0 = RED_DURATION - 1;
+  int counter1 = GREEN_DURATION - 1;
   setTimer0(RED0_GREEN1_DURATION);
+  setTimer1(DURATION);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -120,6 +123,7 @@ int main(void)
 			  HAL_GPIO_WritePin(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, GPIO_PIN_SET);
 			  HAL_GPIO_WritePin(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, GPIO_PIN_RESET);
 			  nextState = RED0_YELLOW1;
+			  counter1 = YELLOW_DURATION;
 			  setTimer0(RED0_YELLOW1_DURATION);
 			  break;
 		  case RED0_YELLOW1:
@@ -128,12 +132,15 @@ int main(void)
 			  HAL_GPIO_WritePin(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, GPIO_PIN_SET);
 			  HAL_GPIO_WritePin(LED_RED1_GPIO_Port, LED_RED1_Pin, GPIO_PIN_RESET);
 			  nextState = GREEN0_RED1;
+			  counter0 = GREEN_DURATION;
+			  counter1 = RED_DURATION;
 			  setTimer0(GREEN0_RED1_DURATION);
 			  break;
 		  case GREEN0_RED1:
 			  HAL_GPIO_WritePin(LED_GREEN0_GPIO_Port, LED_GREEN0_Pin, GPIO_PIN_SET);
 			  HAL_GPIO_WritePin(LED_YELLOW0_GPIO_Port, LED_YELLOW0_Pin, GPIO_PIN_RESET);
 			  nextState = YELLOW0_RED1;
+			  counter0 = YELLOW_DURATION;
 			  setTimer0(YELLOW0_RED1_DURATION);
 			  break;
 		  case YELLOW0_RED1:
@@ -142,12 +149,21 @@ int main(void)
 			  HAL_GPIO_WritePin(LED_RED1_GPIO_Port, LED_RED1_Pin, GPIO_PIN_SET);
 			  HAL_GPIO_WritePin(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, GPIO_PIN_RESET);
 			  nextState = RED0_GREEN1;
+			  counter0 = RED_DURATION;
+			  counter1 = GREEN_DURATION;
 			  setTimer0(RED0_GREEN1_DURATION);
 			  break;
 		  default:
 			  break;
 		  }
 	  }
+	  if (timer1_flag == 1) {
+		  counter0 --;
+		  counter1 --;
+		  setTimer1(DURATION);
+	  }
+	  display7SEG0(counter0);
+	  display7SEG1(counter1);
 	  currentState = nextState;
 	  runTimer();
 	  HAL_Delay(1000);

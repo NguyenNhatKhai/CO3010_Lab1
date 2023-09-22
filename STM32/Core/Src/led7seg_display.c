@@ -7,7 +7,7 @@
 
 #include "led7seg_display.h"
 
-uint8_t numbers[10] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10};
+uint16_t numbers[10] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10};
 
 void display7SEG0(int num) {
 	switch (num) {
@@ -49,34 +49,34 @@ void display7SEG0(int num) {
 void display7SEG1(int num) {
 	switch (num) {
 	case 0:
-		GPIOB->ODR = numbers[0] << 8;
+		GPIOB->ODR = numbers[0] << 8 | GPIOB->ODR;
 		break;
 	case 1:
-		GPIOB->ODR = numbers[1] << 8;
+		GPIOB->ODR = numbers[1] << 8 | GPIOB->ODR;
 		break;
 	case 2:
-		GPIOB->ODR = numbers[2] << 8;
+		GPIOB->ODR = numbers[2] << 8 | GPIOB->ODR;
 		break;
 	case 3:
-		GPIOB->ODR = numbers[3] << 8;
+		GPIOB->ODR = numbers[3] << 8 | GPIOB->ODR;
 		break;
 	case 4:
-		GPIOB->ODR = numbers[4] << 8;
+		GPIOB->ODR = numbers[4] << 8 | GPIOB->ODR;
 		break;
 	case 5:
-		GPIOB->ODR = numbers[5] << 8;
+		GPIOB->ODR = numbers[5] << 8 | GPIOB->ODR;
 		break;
 	case 6:
-		GPIOB->ODR = numbers[6] << 8;
+		GPIOB->ODR = numbers[6] << 8 | GPIOB->ODR;
 		break;
 	case 7:
-		GPIOB->ODR = numbers[7] << 8;
+		GPIOB->ODR = numbers[7] << 8 | GPIOB->ODR;
 		break;
 	case 8:
-		GPIOB->ODR = numbers[8] << 8;
+		GPIOB->ODR = numbers[8] << 8 | GPIOB->ODR;
 		break;
 	case 9:
-		GPIOB->ODR = numbers[9] << 8;
+		GPIOB->ODR = numbers[9] << 8 | GPIOB->ODR;
 		break;
 	default:
 		break;
