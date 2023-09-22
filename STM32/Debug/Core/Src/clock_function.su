@@ -1,2 +1,3 @@
 ../Core/Src/clock_function.c:12:6:testClock	16	static
 ../Core/Src/clock_function.c:71:6:clearAllClock	8	static
+../Core/Src/clock_function.c:86:6:setNumberOnClock	16	static
