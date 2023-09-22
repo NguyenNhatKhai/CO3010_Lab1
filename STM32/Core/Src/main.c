@@ -32,6 +32,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define DURATION 1
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -86,13 +87,37 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-
+  int currentSecond = 0;
+  int currentMinute = 0;
+  int currentHour = 0;
+  setTimer0(DURATION);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  if (timer0_flag == 1) {
+		  currentSecond ++;
+		  if (currentSecond >= 60) {
+			  currentSecond = 0;
+			  currentMinute ++;
+			  if (currentMinute >= 60) {
+				  currentMinute = 0;
+				  currentHour ++;
+				  if (currentHour >= 12) {
+					  currentHour = 0;
+				  }
+			  }
+		  }
+		  setTimer0(DURATION);
+	  }
+	  clearAllClock();
+	  setNumberOnClock(currentSecond / 5);
+	  setNumberOnClock(currentMinute / 5);
+	  setNumberOnClock(currentHour);
+	  runTimer();
+	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
