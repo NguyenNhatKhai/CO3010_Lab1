@@ -14,5 +14,6 @@
 #define LED_NUMBER 12
 
 void testClock(int duration);
+void clearAllClock();
 
 #endif /* INC_CLOCK_FUNCTION_H_ */
