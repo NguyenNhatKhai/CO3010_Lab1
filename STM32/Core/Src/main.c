@@ -164,7 +164,7 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, SEG_0A_Pin|SEG_0B_Pin|SEG_0C_Pin|SEG_0D_Pin
-                          |SEG_0E_Pin|SEG_0F_Pin|SEG_0G_Pin, GPIO_PIN_RESET);
+                          |SEG_0E_Pin|SEG_0F_Pin|SEG_0G_Pin|SEG_0DP_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : LED_RED0_Pin LED_YELLOW0_Pin LED_GREEN0_Pin LED_RED1_Pin
                            LED_YELLOW1_Pin LED_GREEN1_Pin */
@@ -176,9 +176,9 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : SEG_0A_Pin SEG_0B_Pin SEG_0C_Pin SEG_0D_Pin
-                           SEG_0E_Pin SEG_0F_Pin SEG_0G_Pin */
+                           SEG_0E_Pin SEG_0F_Pin SEG_0G_Pin SEG_0DP_Pin */
   GPIO_InitStruct.Pin = SEG_0A_Pin|SEG_0B_Pin|SEG_0C_Pin|SEG_0D_Pin
-                          |SEG_0E_Pin|SEG_0F_Pin|SEG_0G_Pin;
+                          |SEG_0E_Pin|SEG_0F_Pin|SEG_0G_Pin|SEG_0DP_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

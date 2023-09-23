@@ -83,6 +83,8 @@ void Error_Handler(void);
 #define SEG_0F_GPIO_Port GPIOB
 #define SEG_0G_Pin GPIO_PIN_6
 #define SEG_0G_GPIO_Port GPIOB
+#define SEG_0DP_Pin GPIO_PIN_7
+#define SEG_0DP_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
