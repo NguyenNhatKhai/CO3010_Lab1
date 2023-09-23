@@ -79,6 +79,8 @@ void Error_Handler(void);
 #define SEG_1F_GPIO_Port GPIOB
 #define SEG_1G_Pin GPIO_PIN_14
 #define SEG_1G_GPIO_Port GPIOB
+#define SEG_1DP_Pin GPIO_PIN_15
+#define SEG_1DP_GPIO_Port GPIOB
 #define LED_RED1_Pin GPIO_PIN_8
 #define LED_RED1_GPIO_Port GPIOA
 #define LED_YELLOW1_Pin GPIO_PIN_9
@@ -93,6 +95,8 @@ void Error_Handler(void);
 #define SEG_0F_GPIO_Port GPIOB
 #define SEG_0G_Pin GPIO_PIN_6
 #define SEG_0G_GPIO_Port GPIOB
+#define SEG_0DP_Pin GPIO_PIN_7
+#define SEG_0DP_GPIO_Port GPIOB
 #define SEG_1A_Pin GPIO_PIN_8
 #define SEG_1A_GPIO_Port GPIOB
 #define SEG_1B_Pin GPIO_PIN_9
