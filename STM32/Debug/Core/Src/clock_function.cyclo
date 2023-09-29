@@ -1,0 +1,4 @@
+../Core/Src/clock_function.c:12:6:testClock	14
+../Core/Src/clock_function.c:71:6:clearAllClock	1
+../Core/Src/clock_function.c:86:6:setNumberOnClock	13
+../Core/Src/clock_function.c:129:6:clearNumberOnClock	13

@@ -102,13 +102,13 @@ int main(void)
 		  if (currentSecond >= 60) {
 			  currentSecond = 0;
 			  currentMinute ++;
-			  if (currentMinute >= 60) {
-				  currentMinute = 0;
-				  currentHour ++;
-				  if (currentHour >= 12) {
-					  currentHour = 0;
-				  }
-			  }
+		  }
+		  if (currentMinute >= 60) {
+			  currentMinute = 0;
+			  currentHour ++;
+		  }
+		  if (currentHour >= 12) {
+			  currentHour = 0;
 		  }
 		  setTimer0(DURATION);
 	  }
